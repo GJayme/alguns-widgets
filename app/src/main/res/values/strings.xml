@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Alguns Widgets</string>
+    <string name="fillData">Preencha os dados</string>
+    <string name="nameEt">Nome</string>
+    <string name="lastNameEt">Sobrenome</string>
+    <string name="emailEt">E-mail</string>
+    <string-array name="estado_civil">
+        <item>Solteiro(a)</item>
+        <item>Casado(a)</item>
+        <item>Divorciado(a)</item>
+        <item>Viúvo(a)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:text="@string/fillData" />
+
+        <EditText
+            android:id="@+id/nomeEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/nameEt"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/sobrenomeEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/lastNameEt"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/emailEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/emailEt"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado civil"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:labelFor="@id/estadoCivilSp"/>
+
+        <Spinner
+            android:id="@+id/estadoCivilSp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+        <LinearLayout
+            android:id="@+id/conjugeLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/nomeConjugeEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Nome do cônjuge"
+                android:padding="5dp"
+                android:layout_margin="5dp"/>
+
+            <EditText
+                android:id="@+id/sobrenomeConjugeEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Sobrenome do cônjuge"
+                android:padding="5dp"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sexo"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+        <RadioGroup
+            android:id="@+id/sexoRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_margin="5dp">
+            <RadioButton
+                android:id="@+id/masculinoRb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Masculino"
+                android:checked="true"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:id="@+id/femininoRb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Feminino"
+                android:layout_weight="1"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/salvarBt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:onClick="onClick"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/limparBt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Limpar"
+            android:onClick="onClick"
+            android:padding="5dp"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+</ScrollView>
