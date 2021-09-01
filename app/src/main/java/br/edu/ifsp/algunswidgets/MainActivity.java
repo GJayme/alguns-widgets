@@ -19,40 +19,35 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import br.edu.ifsp.algunswidgets.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
-    private EditText nomeEt;
-    private EditText sobrenomeEt;
-    private EditText emailEt;
-    private EditText nomeConjugeEt;
-    private EditText sobrenomeConjugeEt;
-    private Spinner estadoCivilSp;
-    private LinearLayout conjugeLl;
-    private RadioGroup sexoRg;
-    private RadioButton masculinoRb;
+    // Referência para a classe de vinculação de visualizações
+    private ActivityMainBinding activityMainBinding;
 
     private String nomeCompleto;
-
     private ArrayList<String> estadoCivilList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
+        //        setContentView(R.layout.activity_main);
 
-        bindViews();
         estadoCivilList = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.estado_civil)));
         ArrayAdapter<String> estadoCivilAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, estadoCivilList);
-        estadoCivilSp.setAdapter(estadoCivilAdapter);
+        activityMainBinding.estadoCivilSp.setAdapter(estadoCivilAdapter);
 
-        estadoCivilSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        activityMainBinding.estadoCivilSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int posicao, long id) {
                 if (estadoCivilList.get(posicao).equals("Casado(a)")) {
-                    conjugeLl.setVisibility(View.VISIBLE);
+                    activityMainBinding.conjugeLl.setVisibility(View.VISIBLE);
                 } else {
-                    conjugeLl.setVisibility(View.GONE);
-                    nomeConjugeEt.setText("");
-                    sobrenomeConjugeEt.setText("");
+                    activityMainBinding.conjugeLl.setVisibility(View.GONE);
+                    activityMainBinding.nomeConjugeEt.setText("");
+                    activityMainBinding.sobrenomeConjugeEt.setText("");
                 }
             }
 
@@ -62,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        sobrenomeEt.addTextChangedListener(new TextWatcher() {
+        activityMainBinding.sobrenomeEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -70,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                nomeCompleto = nomeEt.getText().toString() + " " + charSequence;
+                nomeCompleto = activityMainBinding.nomeEt.getText().toString() + " " + charSequence;
                 Toast.makeText(getBaseContext(), nomeCompleto, Toast.LENGTH_SHORT).show();
             }
 
@@ -89,17 +84,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Botão limpar foi clicado", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private void bindViews() {
-        nomeEt = findViewById(R.id.nomeEt);
-        sobrenomeEt = findViewById(R.id.sobrenomeEt);
-        emailEt = findViewById(R.id.emailEt);
-        nomeConjugeEt = findViewById(R.id.nomeConjugeEt);
-        sobrenomeConjugeEt = findViewById(R.id.sobrenomeConjugeEt);
-        estadoCivilSp = findViewById(R.id.estadoCivilSp);
-        conjugeLl = findViewById(R.id.conjugeLl);
-        sexoRg = findViewById(R.id.sexoRg);
-        masculinoRb = findViewById(R.id.masculinoRb);
     }
 }
